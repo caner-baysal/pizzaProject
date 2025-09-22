@@ -1,4 +1,7 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./OrderPage.css";
+import logo from '../../images/iteration-1-images/logo.svg';
+
 
 const OrderPage = () => {
     const [selected, setSelected] = useState([]);
@@ -6,8 +9,8 @@ const OrderPage = () => {
     const [doughSelect, setDoughSelect] = useState("");
     const [orderNote, setOrderNote] = useState("");
     const [quantity, setQuantity] = useState(1);
-    const dough = 85.50;
-    const price = dough + (selected.length * 5);
+    const doughPrice = 85.50;
+    const price = doughPrice + (selected.length * 5);
     const ingredients = [
         "Pepperoni", 
         "Domates", 
@@ -42,18 +45,27 @@ const OrderPage = () => {
     const handleOrderNote = (e) => {
         setOrderNote(e.target.value);
     }
+    
 
     return(
-    <>
-        <h1>Teknolojik Yemekler</h1>
-        <h2>Position Acı Pizza</h2>
-        <p>Fiyat: {dough}</p>
-        <p>
+    <div className="container">
+        <header className="header"><img src={logo} alt="Pizza Projesi Logo" className="logo" /></header>
+        <main>
+        <section>
+        <h2>Position Absolute Acı Pizza</h2>
+        <div className="rating">
+        <span className="price">{doughPrice}₺</span>
+        <span className="rating-text">4.8 (200)</span>
+        </div>
+        <p className="order-page">
         Frontend dev olarak hala position absolute kullanıyorsan bu çok acı pizza tam
         sana göre. Pizza domates, peynir ve genellikle çeşitli malzemelerle kaplanmış, daha sonra geleneksel olarak odun
         ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan
         oluşan İtalyan kökenli lezzetli bir yemektir. Küçük bir pizzaya bazen pizzeta denilir.
         </p>
+        </section>
+        <section className="size-select">
+        <h4>Boyut Seç<span className="necessary">*</span></h4>
         <label>
         <input type="radio" name="size" value="küçük" onChange={handleSizeChange}/>Küçük
         </label>
@@ -63,14 +75,19 @@ const OrderPage = () => {
         <label>
         <input type="radio" name="size" value="büyük" onChange={handleSizeChange}/>Büyük
         </label>
-        <select onChange={setDoughSelect}>
+        </section>
+        <section className="optional-sections">
+        <h4>Hamur Seç<span className="necessary">*</span></h4>
+        <select className="dough-select" onChange={setDoughSelect}>
             <option value="">Hamur Kalınlığı</option>
             <option value="ince">İnce</option>
             <option value="normal">Normal</option>
             <option value="kalın">Kalın</option>
         </select>
-        <h3>Ek Malzemeler</h3>
-        <ul>
+        </section>
+        <section className="optional-sections">
+        <h4>Ek Malzemeler</h4>
+        <ul className="list">
             {ingredients.map((ingredient, index) => (
                 <li key={index}>
                     <label>
@@ -78,15 +95,24 @@ const OrderPage = () => {
                     </label>
                 </li>
             ))}
-            <p>Seçilen Malzemeler: {(selected.join(", "))}</p>
         </ul>
-        <p>Sipariş Notu</p>
+        </section>
+        <section>
+            <p>Seçilen Malzemeler: {(selected.join(", "))}</p>
+        </section>
+        <section>
+            <p>Sipariş Notu</p>
         <input type="text" value={orderNote} onChange={handleOrderNote}></input>
-        <button onClick={() => {setQuantity(quantity > 1 ? quantity - 1 : 1)}}>-</button>
+        </section>
+        <section>
+        <button className="btn" onClick={() => {setQuantity(quantity > 1 ? quantity - 1 : 1)}}>-</button>
         <span>{quantity}</span>
-        <button onClick={() => {setQuantity(quantity + 1)}}>+</button>
-        <p>Toplam fiyat: {quantity * price}</p>
-    </>
+        <button className="btn" onClick={() => {setQuantity(quantity + 1)}}>+</button>
+        <p>Sipariş Toplamı: {quantity * price}</p>
+        <button className="btn">SİPARİŞ VER</button>
+        </section>
+        </main>
+    </div>
     )
 }
 export default OrderPage;
