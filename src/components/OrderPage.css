@@ -1,9 +1,10 @@
 .container {
     max-width: 1200px;
-    margin: 0;
+    margin: auto 0;
     padding: 20px;
     font-family: "Arial", sans-serif;
 }
+
 
 .header {
     text-align: center;
@@ -18,6 +19,7 @@
     margin-left: 400px;
     margin-right: 300px;
     font-size: small;
+    color: #5F5F5F;
 }
 
 .logo {
@@ -25,11 +27,6 @@
   height: 20px;
   margin: 0 auto 0 auto;
   background-color: #CE2829;
-}
-
-.btn {
-    background-color: #FDC913;
-    border-radius: 1;
 }
 
 h2 {
@@ -64,6 +61,79 @@ h2 {
     color: #CE2829;
 }
 
+.size-select {
+    margin-bottom: 30px;
+    margin-left: -220px;
+}
+
+.size-header {
+    margin-left: -110px;
+    font-size: small;
+}
+
+.size {
+    color: #5F5F5F;
+    flex-direction: column;
+}
+
+.dough-header {
+    font-size: small;
+}
+
+.dough-select {
+    color: #292929;
+}
+
+.ing-header {
+    font-size: small;
+    margin-left: -310px;
+}
+
+.optional-sections {
+    margin-left: -120px;
+}
+
 .list {
     list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    text-align: left;
+    margin-left: 355px;
+    margin-right: 325px;
+    font-weight: bold;
+}
+
+.note-header {
+    margin-left: -330px;
+    color: #292929;
+    font-weight: bold;
+    font-size: small;
+}
+
+.order-note {
+    width: 30%;
+    margin-left: -35px;
+}
+
+.qty-section {
+    margin-left: -305px;
+    border-radius: 1;
+    margin-top: 10px;
+}
+
+.btn-minus {
+    background-color: #FDC913;
+}
+
+.btn-plus {
+    background-color: #FDC913;
+}
+
+.total {
+    
+}
+
+.btn-order {
+    background-color: #FDC913;
+    border-radius: 1;
 }
