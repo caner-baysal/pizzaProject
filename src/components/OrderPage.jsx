@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./OrderPage.css";
 import logo from '../../images/iteration-1-images/logo.svg';
+import { useHistory } from "react-router-dom";
 
 
 const OrderPage = () => {
@@ -12,6 +13,7 @@ const OrderPage = () => {
     const doughPrice = 85.50;
     const ingredientsPrice = selected.length * 5;
     const price = doughPrice + (selected.length * 5);
+    const history = useHistory();
     const ingredients = [
         "Pepperoni", 
         "Domates", 
@@ -47,6 +49,9 @@ const OrderPage = () => {
         setOrderNote(e.target.value);
     }
     
+    const handleClick = () => {
+        history.push("/success")
+    }
 
     return(
     <div className="container">
@@ -58,7 +63,7 @@ const OrderPage = () => {
                 <h2>Position Absolute Acı Pizza</h2>
                 <div className="rating">
                     <span className="price">{doughPrice}₺</span>
-                    <span className="rating-text">4.8 (200)</span>
+                    <span className="rating-text">4.8      (200)</span>
                 </div>
                 <p className="order-page">
                 Frontend dev olarak hala position absolute kullanıyorsan bu çok acı pizza tam
@@ -81,7 +86,7 @@ const OrderPage = () => {
                 <h4 className="dough-header">Hamur Seç
                     <span className="necessary">*</span>
                 </h4>
-                <select className="dough-select" onChange={setDoughSelect}>
+                <select className="dough-select" onChange={handleDoughSelect}>
                     <option value="">Hamur Kalınlığı</option>
                     <option value="ince">İnce</option>
                     <option value="normal">Normal</option>
@@ -127,7 +132,7 @@ const OrderPage = () => {
                 </div>
                 <span>Toplam: {quantity * price}₺</span>
                 <div>
-                    <button className="btn-order">SİPARİŞ VER</button>
+                    <button className="btn-order" onClick={handleClick} disabled={selected.length < 4}>SİPARİŞ VER</button>
                 </div>
             
         </main>

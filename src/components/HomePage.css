@@ -1,0 +1,31 @@
+.homepage {
+    background-color: #CE2829;
+}
+
+.logo {
+    width: 96%;
+    height: 50px;
+}
+
+.home_banner {
+    width: 100%;
+}
+
+h1 {
+  color:white;
+  font-size: 4.5rem;
+  font-weight:lighter;
+  line-height: 1.4;
+  background-color: #CE2829;
+}
+
+.btn {
+  margin-top: 20px;
+  background-color: #FDC913;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}
