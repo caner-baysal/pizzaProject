@@ -15,7 +15,7 @@ import li_3 from "../../images/iteration-2-images/footer/insta/li-3.png";
 import li_4 from "../../images/iteration-2-images/footer/insta/li-4.png";
 import li_5 from "../../images/iteration-2-images/footer/insta/li-5.png";
 
-const OrderPage = ({orderData, setOrderData}) => {
+const OrderPage = ({orderSum, setOrderSum}) => {
     const [selected, setSelected] = useState([]);
     const [size, setSize] = useState("");
     const [doughSelect, setDoughSelect] = useState("");
@@ -46,7 +46,7 @@ const OrderPage = ({orderData, setOrderData}) => {
             setSelected([...selected, value]);
         } else {
             setSelected(selected.filter((item)=> item !== value));
-            setOrderData(...orderData, selected);
+            //setOrderSum({...orderSum, selected});
         }
     }
     
@@ -107,9 +107,9 @@ const OrderPage = ({orderData, setOrderData}) => {
                         <span className="necessary">*</span>
                     </h4>
                     <label className="size">
-                        <br/><input className="small" type="radio" name="size" value="küçük" onChange={handleSizeChange}/>L
+                        <br/><input className="small" type="radio" name="size" value="büyük" onChange={handleSizeChange}/>L
                         <br/><input className="small" type="radio" name="size" value="orta" onChange={handleSizeChange}/>M
-                        <br/><input className="small" type="radio" name="size" value="büyük" onChange={handleSizeChange}/>S
+                        <br/><input className="small" type="radio" name="size" value="küçük" onChange={handleSizeChange}/>S
                     </label>
                 </div>
                 <div className="optional-sections">
