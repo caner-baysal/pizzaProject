@@ -16,6 +16,13 @@
     margin-bottom: 40px;
 }
 
+.package {
+  font-family: "Satisfy", cursive;
+  font-size:smaller;
+  color: #FDC913;
+  font-size:xx-large;
+}
+
 .success_title {
     color: white;
     text-align: center;
